@@ -1,14 +1,12 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+const Blue =  () => import(/* webpackChunkName: "lib-blue" */ '@blibli/dls')
+const BlueCss =  () => import(/* webpackChunkName: "lib-blue" */ '@blibli/dls/dist/blue.min.css')
+const Init = () => import(/* webpackChunkName: "lib-blue" */ '@/init')
 
-Vue.config.productionTip = false
-
-require('@/api-mock')
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+Promise.all([
+  Blue(),
+  BlueCss()
+]).then(values => {
+  Vue.use(values[0].default)
+  Init()
+})

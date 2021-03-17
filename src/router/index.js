@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
+import Home from '@/pages/Home.vue'
 const Profile = () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue')
-
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },

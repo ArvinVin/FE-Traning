@@ -33,7 +33,7 @@ export default {
 
     &__content {
       max-width: 1200px;
-      background-color: $color-black;
+      background-color: $color-white;
       padding: 25px 0;
       margin: 0 auto;
     }
